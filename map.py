@@ -3,30 +3,54 @@ def menu():
 Seleccione el metodo de numeros aleatorios:
 
 Metodo de los cuadrados medios
-1) Algoritmo de cuadrados medios.
-2) Algoritmo de productos medios.
-3) Algoritmo de multiplicador constante.
+1) Algoritmo de cuadrados medios. DONE
+2) Algoritmo de productos medios. TODO
+3) Algoritmo de multiplicador constante. TODO
 
 Algoritmos congruenciales
-4) Algoritmo congruencial lineal.
-5) Algoritmo congruencial multiplicativo.
-6) Algoritmo congruencial aditivo.
+4) Algoritmo congruencial lineal. DONE
+5) Algoritmo congruencial multiplicativo. DONE
+6) Algoritmo congruencial aditivo. TODO
 
 Algoritmos congurenciales no lineales
-7) Algoritmo congruencial cuadratico."""
+7) Algoritmo congruencial cuadratico. TODO
+"""
     while(True):
         print(menu)
         i = input('> ')
-        print(algorithm_selected(i))
+        print(i)
+        print(algorithm_selected(i)())
+
+
+def cuadrados_medios():
+    seed = int(input("Seed: "))
+    N = int(input("N: "))
+    yi = pow(seed, 2)
+    xi = seed
+    result = []
+    for x in range(1, N):
+        if(yi == 0):
+            break
+            return result
+        elif(len(str(yi)) <= 6):
+            xi = int(str(yi)[1:5])
+        else:
+            xi = int(str(yi)[2:6])
+
+        random_value = xi / 10000
+        result.append(random_value)
+
+        yi = pow(xi, 2)
+    return result
 
 
 def algorithm_selected(x):
     return {
-        '1': 1,
+        '1': cuadrados_medios,
         '2': 2,
         '3': 2,
-        '4': congruencial_lineal(),
-        '5': 2,
+        '4': congruencial_lineal,
+        '5': congruencial_multiplicativo,
         '6': 2,
         '7': 2,
     }.get(x, 9)
@@ -47,7 +71,23 @@ def congruencial_lineal():
             module = xi % m
             ls.append(module / (m - 1))
         return ls
-        break
+
+
+def congruencial_multiplicativo():
+    while(True):
+        xo = float(input("xo: "))
+        k = float(input("k: "))
+        g = float(input("g: "))
+        a = 3 + 8 * k
+        m = pow(2, g)
+        pv = pow(2, g - 2)
+        module = xo
+        result = []
+        for x in range(1, 100):
+            xi = (a * module)
+            module = xi % m
+            print(module / (m - 1))
+        return result
 
 
 def menu_comprobacion():

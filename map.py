@@ -32,6 +32,8 @@ def cuadrados_medios():
         if(yi == 0):
             break
             return result
+        elif(len(str(yi)) <= 4):
+            xi = int(str(yi))
         elif(len(str(yi)) <= 6):
             xi = int(str(yi)[1:5])
         else:

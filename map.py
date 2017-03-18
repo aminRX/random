@@ -5,7 +5,7 @@ Seleccione el metodo de numeros aleatorios:
 Metodo de los cuadrados medios
 1) Algoritmo de cuadrados medios. DONE
 2) Algoritmo de productos medios. DONE
-3) Algoritmo de multiplicador constante. TODO
+3) Algoritmo de multiplicador constante. DONE
 
 Algoritmos congruenciales
 4) Algoritmo congruencial lineal. DONE
@@ -73,11 +73,36 @@ def productos_medios():
     return result
 
 
+def multiplicador_constante():
+    conts = 445
+    seed = 445
+    N = 10
+    yi = conts * seed
+    result = []
+    for x in range(1, N):
+        if(yi == 0):
+            break
+            return result
+        elif(len(str(yi)) <= 4):
+            xi = int(str(yi))
+        elif(len(str(yi)) <= 6):
+            xi = int(str(yi)[1:5])
+        else:
+            xi = int(str(yi)[2:6])
+
+        random_value = xi / 10000
+        result.append(random_value)
+
+        yi = conts * xi
+    return result
+
+
+
 def algorithm_selected(x):
     return {
         '1': cuadrados_medios,
         '2': productos_medios,
-        '3': 2,
+        '3': multiplicador_constante,
         '4': congruencial_lineal,
         '5': congruencial_multiplicativo,
         '6': 2,

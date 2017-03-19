@@ -10,7 +10,7 @@ Metodo de los cuadrados medios
 Algoritmos congruenciales
 4) Algoritmo congruencial lineal. DONE
 5) Algoritmo congruencial multiplicativo. DONE
-6) Algoritmo congruencial aditivo. TODO
+6) Algoritmo congruencial aditivo. DONE
 
 Algoritmos congurenciales no lineales
 7) Algoritmo congruencial cuadratico. TODO
@@ -105,7 +105,7 @@ def algorithm_selected(x):
         '4': congruencial_lineal,
         '5': congruencial_multiplicativo,
         '6': congruencial_aditivo,
-        '7': 2,
+        '7': congruencial_cuadratico,
     }.get(x, 9)
 
 
@@ -161,6 +161,30 @@ def congruencial_aditivo():
         values.append(xi)
         results.append(xi/(m - 1))
     return results
+
+
+def congruencial_cuadratico():
+    print("Ejem: ")
+    print("x0 = 13")
+    print("m = 8")
+    print("a = 26")
+    print("b = 27")
+    print("c = 27")
+    print("N = 10")
+    x0 = int(input("x0: "))
+    m = int(input("m: "))
+    a = int(input("a: "))
+    b = int(input("b: "))
+    c = int(input("c: "))
+    N = int(input("N: "))
+    result = []
+    xi = (a * pow(x0, 2) + b * x0 + c) % 10
+    result.append(xi/(m - 1))
+    for x in range(0, N - 1):
+        xi = (a * pow(xi, 2) + b * xi + c) % 10
+        print(xi/(m - 1))
+        result.append(xi/(m - 1))
+    return result
 
 
 def menu_comprobacion():

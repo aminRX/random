@@ -97,7 +97,6 @@ def multiplicador_constante():
     return result
 
 
-
 def algorithm_selected(x):
     return {
         '1': cuadrados_medios,
@@ -105,7 +104,7 @@ def algorithm_selected(x):
         '3': multiplicador_constante,
         '4': congruencial_lineal,
         '5': congruencial_multiplicativo,
-        '6': 2,
+        '6': congruencial_aditivo,
         '7': 2,
     }.get(x, 9)
 
@@ -142,6 +141,26 @@ def congruencial_multiplicativo():
             module = xi % m
             print(module / (m - 1))
         return result
+
+
+def congruencial_aditivo():
+    # values = [65, 89, 98, 3, 69]
+    values = []
+    print('Cantidad de numeros listos.')
+    ND = int(input("N: "))
+    for x in range(0, ND):
+        value = int(input("{}: ".format(x + 1)))
+        print(value)
+        values.append(value)
+    m = 100
+    print('Cantidad de numeros que se desea generar:')
+    N = int(input("N: "))
+    results = []
+    for x in range(len(values), len(values) + N):
+        xi = (values[x - 1] + values[x - len(values)]) % m
+        values.append(xi)
+        results.append(xi/(m - 1))
+    return results
 
 
 def menu_comprobacion():
